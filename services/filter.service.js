@@ -1,12 +1,12 @@
-const ProductTypes = require('../models/ProductTypes')
+const AnimalsTypes = require('../models/Visitors')
 
 class FilterService {
 	async getFilters() {
-		const filters = await ProductTypes.findAll()
+		const filters = await AnimalsTypes.findAll()
 		return filters
 	}
 	async addFilter(name) {
-		const filter = await ProductTypes.create({
+		const filter = await AnimalsTypes.create({
 			name,
 		})
 		return filter
