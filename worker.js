@@ -15,7 +15,7 @@ async function start() {
 	try {
 		await sequelize.authenticate()
 		await sequelize.sync()
-		app.listen(PORT, () => {
+		const server = app.listen(PORT, () => {
 			console.log(`Server started on port: ${PORT}. Pid: ${pid}`)
 		})
 		process.on('SIGINT', () => {

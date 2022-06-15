@@ -5,14 +5,14 @@ const pid = process.pid
 const PORT = process.env.ADMIN_PORT || 5000
 const sequelize = require('./db')
 
+app.use('/admin', require('./routes/admin.routes'))
+
+app.use(express.static(__dirname + '/static'))
+
 async function start() {
 	try {
 		await sequelize.authenticate()
 		await sequelize.sync()
-
-		app.use('/admin', require('./routes/admin.routes'))
-
-		app.use(express.static(__dirname + '/static'))
 
 		const server = app.listen(PORT, () => {
 			console.log(`Server started on port: ${PORT}. Pid: ${pid}`)

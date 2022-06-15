@@ -7,6 +7,7 @@ const Animals = sequelize.define('animals', {
 	id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 	photo: { type: DataTypes.STRING },
 	name: { type: DataTypes.STRING },
+	animals: { type: DataTypes.STRING },
 	short_desc: { type: DataTypes.STRING(510) },
 	age: { type: DataTypes.STRING },
 	birthday: { type: DataTypes.STRING },

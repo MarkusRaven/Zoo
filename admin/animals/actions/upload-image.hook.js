@@ -7,11 +7,7 @@ const after = async (res, req, context) => {
 
 	if (record.isValid()) {
 		const fileName =
-			'categories' +
-			'/' +
-			uuid.v4() +
-			'.' +
-			uploadImage.type.split('/')[1]
+			'animals' + '/' + uuid.v4() + '.' + uploadImage.type.split('/')[1]
 		const filePath = path.resolve('static', fileName)
 
 		fs.copyFile(uploadImage.path, filePath, (err) => {

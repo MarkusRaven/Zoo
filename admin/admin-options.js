@@ -2,6 +2,7 @@ const animalsProperties = require('./animals/animals.properties')
 const usersProperties = require('./users/users.properties')
 const darkTheme = require('./theme/admin-theme')
 const path = require('path')
+const AdminJS = require('adminjs')
 
 const Animals = require('../models/Animals')
 const AnimalsTypes = require('../models/AnimalsTypes')
@@ -117,16 +118,19 @@ const options = {
 					},
 					edit: {
 						after: async (res, req, context) => {
-							return uploadsAfterHook(res, req, context)
+							return uploadAfterHook(res, req, context)
 						},
 						before: async (req, context) => {
-							return uploadsBeforeHook(req, context)
+							return uploadBeforeHook(req, context)
 						},
 					},
 				},
 			},
 		},
 	],
+	dashboard: {
+		component: AdminJS.bundle('../admin/my-dashboard-component'),
+	},
 	locale: {
 		translations: {
 			labels: {
