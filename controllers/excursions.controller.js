@@ -12,6 +12,18 @@ class AnimalsController {
 			})
 		}
 	}
+
+	async recordExcursion(req, res) {
+		try {
+			const visitor = await ExcursionsService.recordExcursion(req.body)
+			return res.json(visitor)
+		} catch (e) {
+			res.status(400).send({
+				message: 'Error when record in excursion',
+				error: e.message,
+			})
+		}
+	}
 }
 
 module.exports = new AnimalsController()

@@ -10,7 +10,6 @@ const Visitors = sequelize.define('visitors', {
 	tel: { type: DataTypes.STRING },
 })
 
-Visitors.hasOne(Excursion)
 Excursion.belongsToMany(Visitors, { through: VisitorsOnExc })
 
 module.exports = Visitors

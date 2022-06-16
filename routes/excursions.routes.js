@@ -4,4 +4,6 @@ const router = Router()
 
 router.get('/', ExcursionsController.getExcursions)
 
+router.post('/record', ExcursionsController.recordExcursion)
+
 module.exports = router
